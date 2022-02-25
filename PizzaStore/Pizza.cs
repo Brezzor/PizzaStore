@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PizzaStore
+{
+    class Pizza
+    {
+        public Pizza()
+        {
+
+        }
+    }
+}
