@@ -6,5 +6,9 @@ namespace PizzaStore
 {
     class Menu
     {
+        public Menu()
+        {
+
+        }
     }
 }

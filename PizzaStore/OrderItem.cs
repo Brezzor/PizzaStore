@@ -6,5 +6,10 @@ namespace PizzaStore
 {
     class OrderItem
     {
+
+        public OrderItem(Pizza pizza)
+        {
+
+        }
     }
 }
