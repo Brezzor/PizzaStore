@@ -9,7 +9,7 @@ namespace PizzaStore
         private static Customer _customer;
         private static Pizza _pizza;
         private static List<Order> orders = new List<Order>();
-        private int _orderNum = orders.Count + 1;
+        private int _orderNum = orders.Count;
         public Order(Customer customer, Pizza pizza)
         {
             _customer = customer;
@@ -18,7 +18,7 @@ namespace PizzaStore
         }
         private Customer Customer { get { return _customer; } }
         private Pizza Pizza { get { return _pizza; } }
-        private int OrderNum { get { return _orderNum; } }
+        private int OrderNum { get { return _orderNum + 1; } }
         private string Toppings()
         {
             List<string> toppings = Pizza.GetToppings();
