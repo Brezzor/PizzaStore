@@ -22,7 +22,7 @@ namespace PizzaStore
         {
             for (int i = 0; i < _toppings.Count; i++)
             {
-                Console.WriteLine($"Topping[{i}]: {_toppings[i]}");
+                Console.WriteLine($"{_toppings[i]}");
             }
         }
     }

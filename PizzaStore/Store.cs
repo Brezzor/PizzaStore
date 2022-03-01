@@ -9,7 +9,7 @@ namespace PizzaStore
         public static void Start()
         {
             int command = 0;
-            int menuNum;
+            int menuNum = 0;
             bool correctCommand = false;
             bool _exit = false;
 
@@ -59,6 +59,8 @@ namespace PizzaStore
                             correctCommand = true;
                         }
                         correctCommand = false;
+
+                        Menu.GetPizza(menuNum);
 
                         Console.Write("Press any key to continue");
                         Console.ReadKey();
