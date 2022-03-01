@@ -6,7 +6,7 @@ namespace PizzaStore
 {
     class Pizza
     {
-        private string _name;
+        private string _name;        
         private List<string> _toppings = new List<string>();
         public Pizza(string name, List<string> toppings)
         {
@@ -16,14 +16,10 @@ namespace PizzaStore
                 _toppings.Add(topping);
             }
         }
-
         public string Name { get { return _name; } }
-        public void Toppings()
+        public List<string> GetToppings()
         {
-            for (int i = 0; i < _toppings.Count; i++)
-            {
-                Console.WriteLine($"{_toppings[i]}");
-            }
+            return _toppings;
         }
     }
 }
