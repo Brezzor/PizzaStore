@@ -6,24 +6,23 @@ namespace PizzaStore
 {
     class Pizza
     {
-        private List<Menu> _pizza = new List<Menu>();
-        public Pizza(Menu menu)
+        private string _name;
+        private List<string> _toppings = new List<string>();
+        public Pizza(string name, List<string> toppings)
         {
-            _pizza.Add(menu);
-        }        
-
-        public List<Menu> GetPizza
-        {
-            get 
+            _name = name;
+            foreach (string topping in toppings)
             {
-                List<Menu> pizza = new List<Menu>();
+                _toppings.Add(topping);
+            }
+        }
 
-                for (int i = 0; i < _pizza.Count; i++)
-                {
-                    pizza.Add(_pizza[i]);
-                }
-
-                return pizza;
+        public string Name { get { return _name; } }
+        public void Toppings()
+        {
+            for (int i = 0; i < _toppings.Count; i++)
+            {
+                Console.WriteLine($"Topping[{i}]: {_toppings[i]}");
             }
         }
     }
