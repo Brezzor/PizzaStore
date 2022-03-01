@@ -6,7 +6,7 @@ namespace PizzaStore
 {
     class Menu
     {
-        public static List<Pizza> CreateMenu()
+        public static List<Pizza> GetMenu()
         {
             List<Pizza> pizzas = new List<Pizza>();
 
@@ -20,7 +20,7 @@ namespace PizzaStore
 
         public static void PrintMenu()
         {
-            List<Pizza> pizzas = CreateMenu();
+            List<Pizza> pizzas = GetMenu();
 
             for (int i = 0; i < pizzas.Count; i++)
             {
