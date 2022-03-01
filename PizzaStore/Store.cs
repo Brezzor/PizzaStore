@@ -18,8 +18,9 @@ namespace PizzaStore
                 #region Display Pizza Store
                 Console.Clear();
                 Console.WriteLine("---- Pizza Store ----");
-                Console.WriteLine("[1]: Order pizza " +
-                                  "\n[2]: Show orders" +
+                Console.WriteLine("[1]: Menu" +
+                                  "\n[2]: Make order" +
+                                  "\n[3]: Show orders" +
                                   "\n[0]: Exit'");
                 Console.WriteLine("Type the number of what you would like to do");
                 Console.Write("Command: ");
@@ -45,6 +46,11 @@ namespace PizzaStore
                 switch (command)
                 {
                     case 1:
+                        Menu.PrintMenu();
+                        Console.Write("\nPress any key to continue");
+                        Console.ReadKey();
+                        break;
+                    case 2:
                         #region Choosing and creating a pizza
                         Menu.PrintMenu();
                         Console.WriteLine("\nWhat's number of pizza, would you like?");                        
@@ -98,7 +104,7 @@ namespace PizzaStore
                         Console.Write("\nPress any key to continue");
                         Console.ReadKey();
                         break;
-                    case 2:
+                    case 3:
                         Order.PrintOrders();
 
                         Console.Write("\nPress any key to continue");

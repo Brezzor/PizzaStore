@@ -9,7 +9,9 @@ namespace PizzaStore
         private static List<Pizza> menu = new List<Pizza>()
         {
             new Pizza("Pepperoni pizza", new List<string>(){"Pepperoni"}),
-            new Pizza("Hawaian pizza", new List<string>(){"Ham", "Pineapple"})
+            new Pizza("Hawaian pizza", new List<string>(){"Ham", "Pineapple"}),
+            new Pizza("Italian pizza", new List<string>(){"Meatballs", "Chili"}),
+            new Pizza("Vegetarian pizza", new List<string>(){"Mushrooms", "Pepers", "Asparagus"})
         };        
         public static List<Pizza> GetMenu()
         {            
@@ -19,12 +21,14 @@ namespace PizzaStore
         {
             List<Pizza> pizzas = GetMenu();
 
+            Console.WriteLine("\n|------- Pizza menu ---------");
+            Console.WriteLine("|----------------------------");
             for (int i = 0; i < pizzas.Count; i++)
             {
-                Console.WriteLine($"\nPizza[{i}]: {pizzas[i].Name}");                
-                pizzas[i].GetToppings();
-                Console.WriteLine("-----------------------------");
+                Console.WriteLine($"|Pizza nr.{i}: {pizzas[i].Name}");                
+                pizzas[i].GetToppings();                
             }
+            Console.WriteLine("|----------------------------");
         }           
         public static Pizza GetPizza(int num)
         {
