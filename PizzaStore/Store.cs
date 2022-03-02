@@ -98,7 +98,7 @@ namespace PizzaStore
                         #region Create and print order
                         Order order = new Order(customer, pizza);
 
-                        Order.PrintOrder(order);
+                        order.PrintOrder();
                         #endregion
 
                         Console.Write("\nPress any key to continue");

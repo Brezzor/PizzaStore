@@ -24,13 +24,18 @@ namespace PizzaStore
             List<string> toppings = Pizza.GetToppings();
             return string.Join(", ", toppings);
         }
-        public static void PrintOrder(Order order)
+        private double CalculateTotalPrice()
         {
-            Console.WriteLine($"\n---- Pizza order {order.OrderNum}----");
-            Console.WriteLine($"First name: {order.Customer.FirstName}");
-            Console.WriteLine($"Last name: {order.Customer.LastName}");
-            Console.WriteLine($"Pizza name: {order.Pizza.Name}");
-            Console.WriteLine($"Toppings: {order.Toppings()}");
+            return Pizza.Price;
+        }
+        public void PrintOrder()
+        {
+            Console.WriteLine($"\n---- Pizza order {OrderNum}----");
+            Console.WriteLine($"First name: {Customer.FirstName}");
+            Console.WriteLine($"Last name: {Customer.LastName}");
+            Console.WriteLine($"Pizza name: {Pizza.Name}");
+            Console.WriteLine($"Toppings: {Toppings()}");
+            Console.WriteLine($"Total price: {CalculateTotalPrice()}");
         }
         public static void PrintOrders()
         {
@@ -41,6 +46,7 @@ namespace PizzaStore
                 Console.WriteLine($"Last name: {orders[i].Customer.LastName}");
                 Console.WriteLine($"Pizza name: {orders[i].Pizza.Name}");
                 Console.WriteLine($"Toppings: {orders[i].Toppings()}");
+                Console.WriteLine($"Total price: {orders[i].CalculateTotalPrice()}");
             }
         }
     }

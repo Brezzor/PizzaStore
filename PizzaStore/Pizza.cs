@@ -8,18 +8,21 @@ namespace PizzaStore
     {
         private string _name;        
         private List<string> _toppings = new List<string>();
-        public Pizza(string name, List<string> toppings)
+        private double _price;
+        public Pizza(string name, List<string> toppings, double price)
         {
             _name = name;
             foreach (string topping in toppings)
             {
                 _toppings.Add(topping);
             }
+            _price = price;
         }
         public string Name { get { return _name; } }
         public List<string> GetToppings()
         {
             return _toppings;
         }
+        public double Price { get { return _price; } }
     }
 }
