@@ -74,7 +74,7 @@ namespace PizzaStore
                             else
                             {                                
                                 Console.WriteLine("Invalid number!");
-                                Console.WriteLine("Has to be a number");
+                                Console.WriteLine("Has to be on the menu");
                                 Console.Write("Press any key to continue");
                                 Console.ReadKey();
                             }
@@ -86,7 +86,7 @@ namespace PizzaStore
                         #endregion
 
                         #region Create customer
-                        Console.WriteLine("-- Customer info --");
+                        Console.WriteLine("\n-- Customer info --");
                         Console.Write("First name: ");
                         string firstName = Console.ReadLine();
                         Console.Write("Last name: ");
