@@ -10,6 +10,8 @@ namespace PizzaStore
         private static List<Pizza> _pizzas;
         private static List<Order> orders = new List<Order>();
         private int _orderNum = orders.Count;
+        private double _tax = 1.25;
+        private double _deliveryCost = 40;
         public Order(Customer customer, List<Pizza> pizzas)
         {
             _customer = customer;
@@ -24,7 +26,7 @@ namespace PizzaStore
             {
                 result = result + _pizzas[i].Price;
             }
-            return result * 1.25 + 40;
+            return result * _tax + _deliveryCost;
         }
         public void PrintOrder()
         {
@@ -44,20 +46,27 @@ namespace PizzaStore
         }
         public static void PrintOrders()
         {
-            for (int i = 0; i < orders.Count; i++)
+            if (_pizzas != null)
             {
-                Console.WriteLine($"\n|---- Pizza order {orders[i].OrderNum}----");                
-                Console.WriteLine($"| First name: {orders[i]._customer.FirstName}");
-                Console.WriteLine($"| Last name: {orders[i]._customer.LastName}");
-                foreach (Pizza pizza in _pizzas)
+                for (int i = 0; i < orders.Count; i++)
                 {
-                    Console.WriteLine($"| {pizza.Name}");
-                    foreach (string topping in pizza.GetToppings())
+                    Console.WriteLine($"\n|---- Pizza order {orders[i].OrderNum}----");
+                    Console.WriteLine($"| First name: {orders[i]._customer.FirstName}");
+                    Console.WriteLine($"| Last name: {orders[i]._customer.LastName}");
+                    foreach (Pizza pizza in _pizzas)
                     {
-                        Console.WriteLine($"| {string.Join(", ", topping)}");
+                        Console.WriteLine($"| {pizza.Name}");
+                        foreach (string topping in pizza.GetToppings())
+                        {
+                            Console.WriteLine($"| {string.Join(", ", topping)}");
+                        }
                     }
+                    Console.WriteLine($"| Total price: {orders[i].CalculateTotalPrice()}");
                 }
-                Console.WriteLine($"Total price: {orders[i].CalculateTotalPrice()}");
+            }
+            else
+            {
+                Console.WriteLine("\nNo Orders made!");
             }
         }
     }

@@ -65,7 +65,7 @@ namespace PizzaStore
                                 Console.WriteLine("Has to be a number");
                                 Console.Write("Press any key to continue");
                                 Console.ReadKey();
-                                Console.Write("Pizza number: ");
+                                Console.Write("\nPizza number: ");
                             }
                             if (menuNum <= Menu.LastIndexNum())
                             {
