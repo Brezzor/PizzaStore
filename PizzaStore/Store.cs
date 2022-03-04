@@ -83,6 +83,8 @@ namespace PizzaStore
                         #endregion
 
                         Pizza pizza = Menu.GetPizza(menuNum);
+                        List<Pizza> pizzas = new List<Pizza>();
+                        pizzas.Add(pizza);
                         #endregion
 
                         #region Create customer
@@ -96,7 +98,7 @@ namespace PizzaStore
                         #endregion
 
                         #region Create and print order
-                        Order order = new Order(customer, pizza);
+                        Order order = new Order(customer, pizzas);
 
                         order.PrintOrder();
                         #endregion

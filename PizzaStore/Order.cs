@@ -6,46 +6,57 @@ namespace PizzaStore
 {
     class Order
     {
-        private static Customer _customer;
-        private static Pizza _pizza;
+        private Customer _customer;
+        private static List<Pizza> _pizzas;
         private static List<Order> orders = new List<Order>();
         private int _orderNum = orders.Count;
-        public Order(Customer customer, Pizza pizza)
+        public Order(Customer customer, List<Pizza> pizzas)
         {
             _customer = customer;
-            _pizza = pizza;
+            _pizzas = pizzas;
             orders.Add(this);            
-        }
-        private Customer Customer { get { return _customer; } }
-        private Pizza Pizza { get { return _pizza; } }
-        private int OrderNum { get { return _orderNum + 1; } }
-        private string Toppings()
-        {
-            List<string> toppings = Pizza.GetToppings();
-            return string.Join(", ", toppings);
-        }
+        }       
+        private int OrderNum { get { return _orderNum + 1; } }              
         private double CalculateTotalPrice()
         {
-            return Pizza.Price;
+            double result = 0;
+            for (int i = 0; i < _pizzas.Count; i++)
+            {
+                result = result + _pizzas[i].Price;
+            }
+            return result * 1.25 + 40;
         }
         public void PrintOrder()
         {
-            Console.WriteLine($"\n---- Pizza order {OrderNum}----");
-            Console.WriteLine($"First name: {Customer.FirstName}");
-            Console.WriteLine($"Last name: {Customer.LastName}");
-            Console.WriteLine($"Pizza name: {Pizza.Name}");
-            Console.WriteLine($"Toppings: {Toppings()}");
-            Console.WriteLine($"Total price: {CalculateTotalPrice()}");
+            Console.WriteLine($"\n|---- Pizza order {OrderNum}----");
+            Console.WriteLine($"| First name: {_customer.FirstName}");
+            Console.WriteLine($"| Last name: {_customer.LastName}");
+            Console.WriteLine("| Pizzas ordered:");
+            foreach (Pizza pizza in _pizzas)
+            {
+                Console.WriteLine($"| {pizza.Name}");
+                foreach (string topping in pizza.GetToppings())
+                {
+                    Console.WriteLine($"| {string.Join(", ", topping)}");
+                }
+            }
+            Console.WriteLine($"| Total price: {CalculateTotalPrice()}");
         }
         public static void PrintOrders()
         {
             for (int i = 0; i < orders.Count; i++)
             {
-                Console.WriteLine($"\n---- Pizza order {orders[i].OrderNum}----");                
-                Console.WriteLine($"First name: {orders[i].Customer.FirstName}");
-                Console.WriteLine($"Last name: {orders[i].Customer.LastName}");
-                Console.WriteLine($"Pizza name: {orders[i].Pizza.Name}");
-                Console.WriteLine($"Toppings: {orders[i].Toppings()}");
+                Console.WriteLine($"\n|---- Pizza order {orders[i].OrderNum}----");                
+                Console.WriteLine($"| First name: {orders[i]._customer.FirstName}");
+                Console.WriteLine($"| Last name: {orders[i]._customer.LastName}");
+                foreach (Pizza pizza in _pizzas)
+                {
+                    Console.WriteLine($"| {pizza.Name}");
+                    foreach (string topping in pizza.GetToppings())
+                    {
+                        Console.WriteLine($"| {string.Join(", ", topping)}");
+                    }
+                }
                 Console.WriteLine($"Total price: {orders[i].CalculateTotalPrice()}");
             }
         }
